@@ -1,0 +1,24 @@
+{
+  "branches": ["master"],
+  "plugins": [
+    "@semantic-release/commit-analyzer",
+    "@semantic-release/release-notes-generator",
+    [
+      "@semantic-release/exec",
+      {
+        "prepareCmd": "./gradlew clean shadowJar verifyReleaseJar -Pversion=${nextRelease.version}"
+      }
+    ],
+    [
+      "@semantic-release/github",
+      {
+        "assets": [
+          {
+            "path": "build/libs/template-plugin-${nextRelease.version}.jar",
+            "label": "Universal plugin JAR"
+          }
+        ]
+      }
+    ]
+  ]
+}

@@ -1,0 +1,10 @@
+.gradle/
+build/
+*/build/
+run/
+.idea/
+*.iml
+out/
+.DS_Store
+node_modules/
+.kotlin
